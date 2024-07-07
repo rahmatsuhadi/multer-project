@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    </link>
+    <script src="/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/dist/js/jquery.min.js"></script>
+
+    <style>
+        :root {
+            --pink: rgb(206, 35, 221);
+        }
+
+
+        #section1 {
+            padding-top: 50px;
+            height: auto;
+            color: #fff;
+            background-color: rgb(147, 201, 0);
+        }
+
+        #section2 {
+            padding-top: 50px;
+            height: auto;
+            color: #fff;
+            background-color: rgb(36, 0, 240);
+        }
+
+        #section3 {
+            padding-top: 50px;
+            height: auto;
+            color: #fff;
+            background-color: rgb(252, 188, 188);
+        }
+
+        #section4 {
+            padding-top: 50px;
+            height: auto;
+            color: #fff;
+            background-color: black;
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #008120;">
+        <div class="container-fluid">
+            <a class="navbar-brand  text-white" href="#">Cha Cha</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item ">
+                        <a class="nav-link  text-white active" aria-current="page" href="#">Who I'm</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link  text-white" href="#">Portofolio</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link  text-white disabled">Contact</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link  text-white disabled">Sklil</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div id="section1" class="container-fluid purplepine">
+        Ini isi Section Profile
+
+        <button class="btn btn-default" style="width:30%;" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            onclick="move()">Download CV</button> <button class="btn btn-
+        default" style="width:30%;">Contact Me</button>
+    </div>
+    <div id="section2" class="container-fluid mauve">
+        Ini isi Section portofolio
+    </div>
+    <div id="section3" class="container-fluid mice-elf">
+        Ini isi Section contact / media social
+    </div>
+    <div id="section4" class="container-fluid dalgondes">
+        Ini isi section skill
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Download Progress</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div id="myDownloadBar" class="progress-bar" role="progressbar" aria-label="Basic example"
+                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Membuat JS Download bar-->
+    <script>
+        var i = 0;
+        function move() {
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myDownloadBar");
+                var width = 1;
+                var id = setInterval(frame, 50);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                    }
+                    console.log(i, "data")
+                }
+            }
+        }
+    </script>
+    <script>
+        setTimeout(function () {
+            $('#exampleModal').modal('hide');
+        }, 7000); 
+    </script>
+</body>
+
+</html>
